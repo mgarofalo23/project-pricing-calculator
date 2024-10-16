@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Pricing Calculator</title>
+
+    <!-- Include Carbon Design System's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+</head>
+<body>
+    <div class="bx--grid bx--grid--full-width bx--grid--no-gutter">
+        <div class="bx--row">
+            <div class="bx--col-lg-8 bx--offset-lg-4">
+                <h1 class="bx--type-expressive-heading-04">Project Pricing Calculator</h1>
+                <form id="pricingForm" class="bx--form">
+
+                    <!-- Select Project Type -->
+                    <div class="bx--form-item">
+                        <label for="projectType" class="bx--label">Project Type</label>
+                        <div class="bx--select">
+                            <select id="projectType" class="bx--select-input" required>
+                                <option value="" disabled selected>Select a project type</option>
+                                <option value="product_launch">Pharma Product Launch</option>
+                                <option value="awareness_campaign">Disease Awareness Campaign</option>
+                                <option value="hcp_campaign">HCP Targeting Campaign</option>
+                            </select>
+                            <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--select__arrow" width="10" height="5" viewBox="0 0 10 5" aria-hidden="true">
+                                <path d="M0 0l5 4.998L10 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Project Scope -->
+                    <div class="bx--form-item">
+                        <label for="projectScope" class="bx--label">Project Scope (small, medium, large)</label>
+                        <input type="text" id="projectScope" class="bx--text-input" required>
+                    </div>
+
+                    <!-- Role Inputs (Dynamic) -->
+                    <h3 class="bx--type-expressive-heading-05">Roles and Time Estimates</h3>
+
+                    <!-- Account Director -->
+                    <div class="bx--form-item">
+                        <label class="bx--label">Role: Account Director</label>
+                        <div class="bx--row">
+                            <div class="bx--col-sm-4">
+                                <label class="bx--label">Time Estimate (hours)</label>
+                                <input type="number" id="accountDirectorHours" class="bx--text-input" value="30" required>
+                            </div>
+                            <div class="bx--col-sm-4">
+                                <label class="bx--label">Rate per Hour ($)</label>
+                                <input type="number" id="accountDirectorRate" class="bx--text-input" value="150" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medical Strategist -->
+                    <div class="bx--form-item">
+                        <label class="bx--label">Role: Medical Strategist</label>
+                        <div class="bx--row">
+                            <div class="bx--col-sm-4">
+                                <label class="bx--label">Time Estimate (hours)</label>
+                                <input type="number" id="medicalStrategistHours" class="bx--text-input" value="20" required>
+                            </div>
+                            <div class="bx--col-sm-4">
+                                <label class="bx--label">Rate per Hour ($)</label>
+                                <input type="number" id="medicalStrategistRate" class="bx--text-input" value="180" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Copywriter -->
+                    <div class="bx--form-item">
+                        <label class="bx--label">Role: Copywriter</label>
+                        <div class="bx--row">
+                            <div class="bx--col-sm-4">
+                                <label class="bx--label">Time Estimate (hours)</label>
+                                <input type="number" id="copywriterHours" class="bx--text-input" value="40" required>
+                            </div>
+                            <div class="bx--col-sm-4">
+                                <label class="bx--label">Rate per Hour ($)</label>
+                                <input type="number" id="copywriterRate" class="bx--text-input" value="120" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculate Button -->
+                    <div class="bx--form-item">
+                        <button type="button" class="bx--btn bx--btn--primary" onclick="calculateTotal()">Calculate Total Cost</button>
+                    </div>
+                </form>
+
+                <!-- Output Section -->
+                <div id="output" class="bx--row">
+                    <h2 class="bx--type-expressive-heading-03">Total Estimated Cost: <span id="totalCost">$0</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
